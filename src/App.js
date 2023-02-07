@@ -7,8 +7,31 @@ import ExpenseList from './components/ExpenseList';
 import AllocationForm from './components/AllocationForm';
 import RemainingBudget from './components/Remaining';
 import Currency from './components/Currency';
+import {useState} from 'react';
 
 const App = () => {
+
+    const [value, setValue] = useState('');
+    const [errormess, setErrorMess] = useState('');
+
+    const handleChange = event => {
+
+        if(!event.target.value.match(/^\d+/))
+        {
+            
+            alert('Please entry a numeric value');  
+        
+        }
+        const result = event.target.value.replace(/\D/g, '');
+        setValue(result);
+    };
+
+    console.log(value);
+    console.log(errormess);
+    //console.log(setErrorMess);
+    console.log(typeof value);
+    console.log(Number(value));
+
     return (
         <AppProvider>
             <div className='container'>
@@ -39,6 +62,16 @@ const App = () => {
                         <AllocationForm/>
                     </div>
                 </div>
+            </div>
+                <div>
+            <div>!Hello 123 World 456?___</div>
+            <input
+                type="text"
+                placeholder={errormess}
+                value={value}
+                onChange={handleChange}
+            />
+            {errormess}
             </div>
         </AppProvider>
     );
