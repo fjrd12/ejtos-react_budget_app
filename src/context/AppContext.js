@@ -4,7 +4,19 @@ import React, { createContext, useReducer } from 'react';
 export const AppReducer = (state, action) => {
     let budget = 0;
     let total_budget = 0;
+    //alert(state.budget)
+    //alert(action.payload)
     switch (action.type) {
+        case 'INC_BUDGET':
+            state.budget = parseInt(state.budget) + parseInt(action.payload);
+            //alert(state.budget)
+            action.type = "DONE";
+            return state.budget;            
+        case 'DEC_BUDGET':
+            state.budget = parseInt(state.budget) + parseInt(action.payload);
+            //alert(state.budget)
+            action.type = "DONE";
+            return state.budget;
         case 'DEC_EXPENSE':
             total_budget = state.expenses.reduce(
                 (previousExp, currentExp) => {
