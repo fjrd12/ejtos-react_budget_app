@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 //import React from 'react';
 // eslint-disable-next-line
 import { AppContext } from '../context/AppContext';
@@ -7,12 +7,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Currency = () => {
     //const {currency} = useContext(AppContext);
+    const { dispatch } = useContext(AppContext);
     const [currency, setCurrency] = useState('');
     let options_values = ['$', '£', '€', '₹'];
 
     let options_class = [['green','white'], ['green','white'],['green','white'], ['green','white']];
     const handleChange = event => {
-        alert(event.target.value)
+
+        
         for (var i=0; i < options_values.length; i++) {
             if (options_values[i]===event.target.value)
             {
@@ -24,7 +26,16 @@ const Currency = () => {
                 options_class[i][0] = 'green';
                 options_class[i][1] = 'white';
             }
-        } 
+        }
+        const expense = {
+            name: 'currency',
+            payload: event.target.value,
+        };
+
+        dispatch({
+            type: 'CHG_CURRENCY',
+            payload: expense,
+        });
         setCurrency(event.target.value)
     };
 

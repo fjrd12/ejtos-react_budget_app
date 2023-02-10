@@ -37,3 +37,13 @@
     transform: rotate(360deg);
   }
 }
+
+.btn {
+
+  font-size: 2em;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}

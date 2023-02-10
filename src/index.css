@@ -12,4 +12,24 @@ code {
     monospace;
 }
 
+.btnxgreen {
+  height: 40px;
+  width: 40px;  
+  font-size: 1.4em;
+  border-radius: 80%;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
 
+.btnxred {
+  height: 40px;
+  width: 40px;  
+  font-size: 1.4em;
+  border-radius: 80%;
+  background-color: #f20909;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
